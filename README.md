@@ -1,23 +1,27 @@
 # Portal8
 Aplicativo escrito em React Native para exibição de formulários dinâmicos.
 
-# Welcome to your Expo app 👋
+## iniciando o projeto
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
+1. Instale as dependêcias
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Inicie o aplicativo
 
    ```bash
     npx expo start
    ```
+
+   ou caso esteja usando o WSL2 acesse [Expo QR code on Windows Subsystem for Linux (WSL2)](https://www.linkedin.com/pulse/expo-qr-code-windows-subsystem-linux-wsl2-alexandre-gomes-6xxxe/) para saber como fazer o sdk rodar no seu pc
+
+   ```bash
+    npm run start:wsl
+   ```
+
+3. Abra o aplicativo da Expo no seu celular e escaneio o QR que aparece no terminal
 
 In the output, you'll find options to open the app in a
 
@@ -28,26 +32,15 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+# Ferramentas
 
-When you're ready, run:
+- Linguagem:
+   Typescript
 
-```bash
-npm run reset-project
-```
+- Framework:
+   React Native c/ Expo
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Bibliotecas:
+   @react-native-community/datetimepicker
+   @react-navigation
+   react-native-reanimated-table
