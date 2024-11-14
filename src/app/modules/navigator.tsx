@@ -1,7 +1,6 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Home from "./home";
 import { ProgramProperties } from "@/src/types";
-import PageModule from "../components/pageModule";
+import ModuleNavigation from "./moduleNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -21,23 +20,10 @@ export default function Portal8Navigator({
           return undefined;
         }
         return (
-          <Drawer.Screen name={portal8.modules[moduleName].name}>
-            {(e) => (
-              <Drawer.Navigator screenOptions={{ drawerPosition: "right" }}>
-                {Object.keys(portal8.modules[moduleName].pages).map(
-                  (pageName) => {
-                    if (portal8.modules[moduleName].pages[pageName].hidden) {
-                      return undefined;
-                    }
-                    return (
-                      <Drawer.Screen name={portal8.modules[moduleName].name}>
-                        {(e) => <PageModule />}
-                      </Drawer.Screen>
-                    );
-                  }
-                )}
-              </Drawer.Navigator>
-            )}
+          <Drawer.Screen name={portal8.modules[moduleName].name} key={moduleName}>
+            {(e) => {
+              return (<ModuleNavigation module={portal8.modules[moduleName]}/>);
+            }}
           </Drawer.Screen>
         );
       })}

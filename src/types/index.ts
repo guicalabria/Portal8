@@ -51,20 +51,23 @@ export type ProgramProperties = {
 
 export type ModuleProperties = {
   name: string;
+  navigation: "Drawer" | "Stack" | "Tab";
   hidden?: boolean;
   stringFunctions?: string[];
   style?: Style;
   variables?: any;
   functions?: any;
   pages: {
-    [key: string]: {
+    [key: string]: PageProperties;
+  };
+};
+
+export type PageProperties = {
       name: string;
       hidden?: boolean;
       style?: Style;
       components: { [key: string]: PageComponent };
-    };
-  };
-};
+}
 
 export type TableProperties = {
   dataView?: DataRow[];

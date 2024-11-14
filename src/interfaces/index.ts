@@ -1,3 +1,4 @@
+import { ImageStyle, TextStyle, ViewStyle } from "react-native";
 import { Style, TableCss, TableProperties } from "../types";
 
 export interface Component {
@@ -18,7 +19,7 @@ export interface Component {
     | "video"
     | "sound"
     | "googleMap";
-  value: string | { start: string; end: string };
+  value: string;
   inputMode?: 
     | "none"
     | "text"
@@ -30,14 +31,16 @@ export interface Component {
     | "url";
   placeholder?: string;
   masks?: string[] | [RegExp, string, number][];
-  valueMasked?: string | { start: string; end: string };
+  valueMasked?: string;
   maxLength?: number;
   optionsItems?: { label: string; value: string }[];
-  style?: Style;
   isCurrency?: boolean;
   classCss?: string;
   sourceURL?: string;
   token?: string;
+  textStyle?: TextStyle;
+  imageStyle?: ImageStyle;
+  viewStyle?: ViewStyle;
 }
 
 export interface PageComponent extends Component {

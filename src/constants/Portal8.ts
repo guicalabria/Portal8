@@ -5,6 +5,7 @@ export const Portal8: ProgramProperties = {
   modules: {
     login: {
       name: "Login",
+      navigation: "Stack",
       pages: {
         login: {
           name: "Usuário",
@@ -21,7 +22,7 @@ export const Portal8: ProgramProperties = {
     },
     cliente: {
       name: "Cliente",
-      hidden: true,
+      navigation: "Drawer",
       pages: {
         cadastro: {
           name: "Cadastro de Cliente",
