@@ -22,7 +22,7 @@ export default function Portal8Navigator({
         return (
           <Drawer.Screen name={portal8.modules[moduleName].name} key={moduleName}>
             {(e) => {
-              return (<ModuleNavigation module={portal8.modules[moduleName]}/>);
+              return (<ModuleNavigation module={portal8.modules[moduleName]} moduleName={moduleName}/>);
             }}
           </Drawer.Screen>
         );

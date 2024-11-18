@@ -19,7 +19,7 @@ export interface Component {
     | "video"
     | "sound"
     | "googleMap";
-  value: string;
+  value: any;
   inputMode?: 
     | "none"
     | "text"

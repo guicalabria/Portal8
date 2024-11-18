@@ -33,6 +33,7 @@ export const Portal8: ProgramProperties = {
               type: "input",
               value: "",
               label: "Nome",
+              textStyle: {width: 200, height: 30, backgroundColor: "#ffffff"},
             },
           },
         },

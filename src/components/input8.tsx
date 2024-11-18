@@ -1,19 +1,30 @@
+import sumClass from "@/src/functions/sumClass";
 import { PageComponent } from "@/src/interfaces";
-import { ViewStyle, TextStyle, ImageStyle } from "react-native";
 import { TextInput } from "react-native";
 
-export default function Input8({component, onValueChange }:{component:PageComponent, onValueChange: any}){
-  return(
+export function Input8({
+  component,
+  onValueChange,
+  classes,
+}: {
+  component: PageComponent;
+  onValueChange: any;
+  classes: any;
+}) {
+  return (
     <TextInput
       value={component.masks ? component.valueMasked : component.value}
       inputMode={component.inputMode}
       editable={component.isEditable}
       placeholder={component.placeholder}
       maxLength={component.maxLength}
-      style={{...component.textStyle}}
+      style={{
+        ...sumClass(component.classCss, classes),
+        ...component.textStyle,
+      }}
       onChangeText={(e) => {
-        onValueChange(e)
+        onValueChange(e);
       }}
     />
-  )
+  );
 }
