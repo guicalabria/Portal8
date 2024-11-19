@@ -2,8 +2,15 @@ import { useEffect, useState } from "react";
 import { View, StyleSheet, Pressable } from "react-native";
 import { Audio } from "expo-av";
 import { Ionicons } from "@expo/vector-icons";
+import { PageComponent } from "../interfaces";
 
-export function Sound8({ field, classes }: any) {
+export function Sound8({
+  component,
+  classes,
+}: {
+  component: PageComponent;
+  classes: any;
+}) {
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -14,13 +21,17 @@ export function Sound8({ field, classes }: any) {
       setIsPlaying(true);
     } else {
       // Carregar som a partir de uma URL
-      console.log("Loading Sound");
-      const { sound } = await Audio.Sound.createAsync({ uri: field.source });
-      setSound(sound);
+      if (component.sourceURL) {
+        console.log("Loading Sound");
+        const { sound } = await Audio.Sound.createAsync({
+          uri: component.sourceURL,
+        });
+        setSound(sound);
 
-      console.log("Playing Sound");
-      await sound.playAsync();
-      setIsPlaying(true);
+        console.log("Playing Sound");
+        await sound.playAsync();
+        setIsPlaying(true);
+      }
     }
   }
 
@@ -50,8 +61,7 @@ export function Sound8({ field, classes }: any) {
         <Ionicons name={isPlaying ? "pause" : "play"} size={18} color="white" />
       </Pressable>
     </View>
-  );
-}
+  );}
 
 const styles = StyleSheet.create({
   container: {

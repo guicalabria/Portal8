@@ -1,15 +1,31 @@
-import { TextInput } from "react-native";
 import sumClass from "@/src/functions/sumClass";
+import { PageComponent } from "@/src/interfaces";
+import { TextInput } from "react-native";
 
-export default function TextArea8({ field, onValueChange, classes }: any) {
+export function TextArea8({
+  component,
+  onValueChange,
+  classes,
+}: {
+  component: PageComponent;
+  onValueChange: any;
+  classes: any;
+}) {
   return (
     <TextInput
+      value={component.masks ? component.valueMasked : component.value}
+      inputMode={component.inputMode}
+      editable={component.isEditable}
+      placeholder={component.placeholder}
+      maxLength={component.maxLength}
       multiline
-      style={{ ...sumClass(field.class, classes), ...field.style }}
-      value={field ? field.value : null}
-      inputMode={field.inputMode}
-      maxLength={field.maxLength}
-      onChangeText={(e) => onValueChange(e)}
+      style={{
+        ...sumClass(component.classCss, classes),
+        ...component.textStyle,
+      }}
+      onChangeText={(e) => {
+        onValueChange(e);
+      }}
     />
   );
 }

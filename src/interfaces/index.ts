@@ -4,20 +4,20 @@ import { Style, TableCss, TableProperties } from "../types";
 export interface Component {
   label?: string;
   type:
-    | "input"
-    | "select"
-    | "multiSelect"
-    | "boolean"
-    | "date"
-    | "file"
-    | "grid"
-    | "table"
-    | "button"
-    | "textBox"
-    | "image"
-    | "text"
-    | "video"
-    | "sound"
+		| "button"
+		| "checkBox"
+		| "date"
+		| "dateInterval"
+		| "file"
+		| "image"
+		| "select"
+		| "input"
+		| "multiSelect"
+		| "sound"
+		| "table"
+		| "text"
+		| "textArea"
+		| "video"
     | "googleMap";
   value: any;
   inputMode?: 
@@ -44,8 +44,8 @@ export interface Component {
 }
 
 export interface PageComponent extends Component {
-  isRequired: boolean;
-  isEditable: boolean;
+  isRequired?: boolean;
+  isEditable?: boolean;
   function?: any;
   onPress?: string;
   onLongPress?: string;

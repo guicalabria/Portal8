@@ -3,30 +3,42 @@ import { useEffect, useState } from "react";
 import { Image as ImageRN, Pressable, Text, View } from "react-native";
 import * as FileSystem from "expo-file-system";
 import generateRandomAlphanumeric from "@/src/functions/generateRandomAlphanumeric";
+import { PageComponent } from "../interfaces";
 
-export function Image8({ field, classes, setToken }: any) {
+export function Image8({
+  component,
+  classes,
+  setToken,
+}: {
+  component: PageComponent;
+  classes: any;
+  setToken: any;
+}) {
   const [imageUri, setImageUri] = useState(null);
-  const fileUri: any = `${FileSystem.documentDirectory}${field.token}.jpg`;
+  const fileUri: any = `${FileSystem.documentDirectory}${component.token}.jpg`;
 
   useEffect(() => {
-    console.log(field.token);
-    if (!field.token) {
+    console.log(component.token);
+    if (!component.token) {
       setToken(generateRandomAlphanumeric(20));
     }
     checkIfFileExists();
   }, []);
 
   const downloadImage = async () => {
-    try {
-      const { uri }: any = await FileSystem.downloadAsync(
-        field.source,
-        fileUri
-      );
-      setImageUri(uri);
-      console.log("Image downloaded to:", uri);
-    } catch (error) {
-      console.log("Error downloading image:", error);
+    if(component.sourceURL){
+      try {
+        const { uri }: any = await FileSystem.downloadAsync(
+          component.sourceURL,
+          fileUri
+        );
+        setImageUri(uri);
+        console.log("Image downloaded to:", uri);
+      } catch (error) {
+        console.log("Error downloading image:", error);
+      }
     }
+
   };
 
   const checkIfFileExists = async () => {
@@ -44,9 +56,12 @@ export function Image8({ field, classes, setToken }: any) {
     <View>
       {imageUri ? (
         <ImageRN
-          // source={{ uri: field.source }}
+          // source={{ uri: component.source }}
           source={{ uri: imageUri }}
-          style={{ ...sumClass(field.class, classes), ...field.style }}
+          style={{
+            ...sumClass(component.classCss, classes),
+            ...component.imageStyle,
+          }}
         />
       ) : (
         <Text>Nenhuma imagem baixada.</Text>

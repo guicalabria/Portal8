@@ -7,14 +7,28 @@ export const Portal8: ProgramProperties = {
       name: "Login",
       navigation: "Stack",
       pages: {
-        login: {
+        loginUser: {
           name: "Usuário",
           components: {
+            checkbox: {
+              isEditable: true,
+              isRequired: false,
+              type: 'checkBox',
+              value: false,
+            },
             usuario: {
               isEditable: true,
               isRequired: true,
               type: 'input',
-              value: ''
+              value: '',
+              textStyle: {width: 200, height: 30, backgroundColor: "#ffffff"},
+            },
+            date: {
+              type: 'date',
+              value: '',
+              isEditable: true,
+              isRequired: true,
+              textStyle: {width: 200, height: 30, backgroundColor: "#ffffff"},
             }
           }
         }

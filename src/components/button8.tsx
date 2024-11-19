@@ -21,7 +21,7 @@ export function Button8({
           ...component.textStyle,
         }}
       >
-        {component.value}
+        {component.label}
       </Text>
     </Pressable>
   );

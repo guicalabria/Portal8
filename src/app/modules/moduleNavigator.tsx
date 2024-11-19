@@ -11,9 +11,13 @@ const Stack = createNativeStackNavigator();
 export default function ModuleNavigation({
   module,
   moduleName,
+  onValueChange,
+  classes,
 }: {
   module: ModuleProperties;
   moduleName: string;
+  onValueChange: any;
+  classes: any;
 }) {
   const navigators: { [key: string]: any } = {
     Drawer: (pages: { [key: string]: PageProperties }) => (
@@ -22,7 +26,16 @@ export default function ModuleNavigation({
           if (pages[pageName].hidden) return undefined;
           return (
             <Drawer.Screen name={pages[pageName].name} key={pageName}>
-              {(e) => <PageModule {...e} page={pages[pageName]} />}
+              {(e) => (
+                <PageModule
+                  {...e}
+                  page={pages[pageName]}
+                  classes={classes}
+                  onValueChange={(e: any, component: string) =>
+                    onValueChange(e, component, pageName, moduleName)
+                  }
+                />
+              )}
             </Drawer.Screen>
           );
         })}
@@ -34,7 +47,16 @@ export default function ModuleNavigation({
           if (pages[pageName].hidden) return undefined;
           return (
             <Stack.Screen name={pages[pageName].name} key={pageName}>
-              {(e) => <PageModule {...e} page={pages[pageName]} />}
+              {(e) => (
+                <PageModule
+                  {...e}
+                  page={pages[pageName]}
+                  classes={classes}
+                  onValueChange={(e: any, component: string) =>
+                    onValueChange(e, component, pageName, moduleName)
+                  }
+                />
+              )}
             </Stack.Screen>
           );
         })}
@@ -46,7 +68,16 @@ export default function ModuleNavigation({
           if (pages[pageName].hidden) return undefined;
           return (
             <Tabs.Screen name={pages[pageName].name} key={pageName}>
-              {(e) => <PageModule {...e} page={pages[pageName]} />}
+              {(e) => (
+                <PageModule
+                  {...e}
+                  page={pages[pageName]}
+                  classes={classes}
+                  onValueChange={(e: any, component: string) =>
+                    onValueChange(e, component, pageName, moduleName)
+                  }
+                />
+              )}
             </Tabs.Screen>
           );
         })}

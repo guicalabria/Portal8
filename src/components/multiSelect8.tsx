@@ -1,19 +1,28 @@
 import { styles } from "@/src/constants/styles";
 import sumClass from "@/src/functions/sumClass";
 import { MultiSelect as DropdownMulti } from "react-native-element-dropdown";
+import { PageComponent } from "../interfaces";
 
-export function MultiSelect8({ field, onValueChange, classes }: any) {
+export function MultiSelect8({
+  component,
+  onValueChange,
+  classes,
+}: {
+  component: PageComponent;
+  classes: any;
+  onValueChange: any;
+}) {
   return (
     <DropdownMulti
       itemTextStyle={styles.dropdown}
       selectedTextStyle={styles.dropdownMulti}
       placeholderStyle={styles.dropdown}
-      style={{ ...sumClass(field.class, classes), ...field.style }}
-      data={field.options}
+      style={{ ...sumClass(component.classCss, classes), ...component.viewStyle }}
+      data={component.optionsItems ? component.optionsItems : []}
       placeholder="Selecione"
       labelField="label"
       valueField="value"
-      value={field.value}
+      value={component.value}
       onChange={(e) => onValueChange(e)}
       mode="modal"
     />

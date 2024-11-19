@@ -1,8 +1,15 @@
 import { Text, Pressable } from "react-native";
 import { styles } from "@/src/constants/styles";
 import * as DocumentPicker from "expo-document-picker";
+import { PageComponent } from "../interfaces";
 
-export function File8({ field, onValueChange }: any) {
+export function File8({
+  component,
+  onValueChange,
+}: {
+  component: PageComponent;
+  onValueChange: any;
+}) {
   const pickSomething = async () => {
     try {
       const docRes = await DocumentPicker.getDocumentAsync({
@@ -18,7 +25,7 @@ export function File8({ field, onValueChange }: any) {
 
   return (
     <Pressable style={styles.buttonFile} onPress={pickSomething}>
-      <Text style={styles.buttonTextFile}>{field.buttonText}</Text>
+      <Text style={styles.buttonTextFile}>{component.label}</Text>
     </Pressable>
   );
 }
