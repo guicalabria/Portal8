@@ -1,24 +1,35 @@
-import { useEvent } from 'expo';
-import { useVideoPlayer, VideoView } from 'expo-video';
-import { StyleSheet, View, Button } from 'react-native';
+import { useEvent } from "expo";
+import { useVideoPlayer, VideoView } from "expo-video";
+import { StyleSheet, View, Button } from "react-native";
+import { PageComponent } from "../interfaces";
 
 const videoSource =
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
-export function Video8() {
-  const player = useVideoPlayer(videoSource, player => {
-    player.loop = true;
-    player.play();
+export function Video8({ component }: { component: PageComponent }) {
+  const player = useVideoPlayer(
+    component.sourceURL ? component.sourceURL : "",
+    (player) => {
+      player.loop = true;
+      player.play();
+    }
+  );
+
+  const { isPlaying } = useEvent(player, "playingChange", {
+    isPlaying: player.playing,
   });
-
-  const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
 
   return (
     <View style={styles.contentContainer}>
-      <VideoView style={styles.video} player={player} allowsFullscreen allowsPictureInPicture />
+      <VideoView
+        style={styles.video}
+        player={player}
+        allowsFullscreen
+        allowsPictureInPicture
+      />
       <View style={styles.controlsContainer}>
         <Button
-          title={isPlaying ? 'Pause' : 'Play'}
+          title={isPlaying ? "Pause" : "Play"}
           onPress={() => {
             if (isPlaying) {
               player.pause();
@@ -36,8 +47,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingHorizontal: 50,
   },
   video: {

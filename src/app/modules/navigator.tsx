@@ -15,12 +15,54 @@ export default function Portal8Navigator({
 }) {
   const classes = {};
 
+  function maskedValue(value: string, mask: any) {
+    // value = value.replace(/\D/g, "").replace(/^0+/, "") || "";
+    value = value.replace(/\D/g, "") || "";
+    for (let i = 0; i < mask.length; i++) {
+      if (value.length >= mask[i][2]) {
+        value = value.replace(mask[i][0], mask[i][1]);
+        break;
+      }
+    }
+    while (/[^\w\s]$/.test(value)) {
+      value = value.slice(0, -1);
+    }
+    return value;
+  }
+
   function onValueChange(
     e: any,
     component: string,
     page: string,
     moduleName: string
   ) {
+    if (portal8.modules[moduleName].pages[page].components[component].masks) {
+      setPortal8((prevForm: ProgramProperties) => ({
+        ...prevForm,
+        modules: {
+          ...prevForm.modules,
+          [moduleName]: {
+            ...prevForm.modules[moduleName],
+            pages: {
+              ...prevForm.modules[moduleName].pages,
+              [page]: {
+                ...prevForm.modules[moduleName].pages[page],
+                components: {
+                  ...prevForm.modules[moduleName].pages[page].components,
+                  [component]: {
+                    ...prevForm.modules[moduleName].pages[page].components[
+                      component
+                    ],
+                    value: e,
+                    valueMasked: maskedValue(e, portal8.modules[moduleName].pages[page].components[component].masks)
+                  },
+                },
+              },
+            },
+          },
+        },
+      }));
+    }
     setPortal8((prevForm: ProgramProperties) => ({
       ...prevForm,
       modules: {
@@ -45,7 +87,6 @@ export default function Portal8Navigator({
         },
       },
     }));
-    console.log(e, component, page, moduleName);
   }
 
   return (

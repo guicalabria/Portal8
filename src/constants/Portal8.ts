@@ -13,25 +13,25 @@ export const Portal8: ProgramProperties = {
             checkbox: {
               isEditable: true,
               isRequired: false,
-              type: 'checkBox',
+              type: "checkBox",
               value: false,
             },
             usuario: {
               isEditable: true,
               isRequired: true,
-              type: 'input',
-              value: '',
-              textStyle: {width: 200, height: 30, backgroundColor: "#ffffff"},
+              type: "input",
+              value: "",
+              textStyle: { width: 200, height: 30, backgroundColor: "#ffffff" },
             },
             date: {
-              type: 'date',
-              value: '',
+              type: "date",
+              value: "",
               isEditable: true,
               isRequired: true,
-              textStyle: {width: 200, height: 30, backgroundColor: "#ffffff"},
-            }
-          }
-        }
+              textStyle: { width: 200, height: 30, backgroundColor: "#ffffff" },
+            },
+          },
+        },
       },
     },
     cliente: {
@@ -47,7 +47,7 @@ export const Portal8: ProgramProperties = {
               type: "input",
               value: "",
               label: "Nome",
-              textStyle: {width: 200, height: 30, backgroundColor: "#ffffff"},
+              textStyle: { width: 200, height: 30, backgroundColor: "#ffffff" },
             },
           },
         },
