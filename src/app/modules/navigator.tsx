@@ -1,3 +1,4 @@
+// Aqui contém a navegação do programa carregado, cada modulo carrega um conjunto de páginas
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { ProgramProperties } from "@/src/types";
 import ModuleNavigation from "./moduleNavigator";
@@ -16,7 +17,6 @@ export default function Portal8Navigator({
   const classes = {};
 
   function maskedValue(value: string, mask: any) {
-    // value = value.replace(/\D/g, "").replace(/^0+/, "") || "";
     value = value.replace(/\D/g, "") || "";
     for (let i = 0; i < mask.length; i++) {
       if (value.length >= mask[i][2]) {
@@ -54,7 +54,12 @@ export default function Portal8Navigator({
                       component
                     ],
                     value: e,
-                    valueMasked: maskedValue(e, portal8.modules[moduleName].pages[page].components[component].masks)
+                    valueMasked: maskedValue(
+                      e,
+                      portal8.modules[moduleName].pages[page].components[
+                        component
+                      ].masks
+                    ),
                   },
                 },
               },
@@ -93,7 +98,7 @@ export default function Portal8Navigator({
     <Drawer.Navigator>
       {Object.keys(portal8.modules).map((moduleName) => {
         if (portal8.modules[moduleName].hidden) {
-          return undefined;
+          return;
         }
         return (
           <Drawer.Screen

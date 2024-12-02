@@ -1,3 +1,4 @@
+// Cria um botão para buscar um arquivo no celular e ser carregado no programa.
 import { Text, Pressable } from "react-native";
 import { styles } from "@/src/constants/styles";
 import * as DocumentPicker from "expo-document-picker";

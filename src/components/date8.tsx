@@ -1,3 +1,4 @@
+// Gera um input com caléndário para facilitar a inserção de datas
 import { useEffect, useState } from "react";
 import { View, TextInput, Pressable, Text, Modal } from "react-native";
 import { styles, stylesModal } from "@/src/constants/styles";

@@ -1,3 +1,4 @@
+// contexto necessário para SyncredScrollView.tsx funcionar
 import { createContext } from 'react'
 import { Animated } from 'react-native';
 

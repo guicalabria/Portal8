@@ -1,3 +1,4 @@
+// Cria um input de seleção para escolher uma entre opções pré estabelecidas
 import { styles } from "@/src/constants/styles";
 import { Dropdown } from "react-native-element-dropdown";
 import { PageComponent } from "../interfaces";

@@ -1,3 +1,4 @@
+// Estrutura a página, lendo os componentes e renderizando conforme necessário
 import { PageComponent } from "@/src/interfaces";
 import { PageProperties } from "@/src/types";
 import { KeyboardAvoidingView, Platform, Text, View } from "react-native";
@@ -56,7 +57,9 @@ export default function PageModule({
         key={key}
       />
     ),
-    dateInterval: (component: PageComponent, key: string) => <DateInterval8 key={key} />,
+    dateInterval: (component: PageComponent, key: string) => (
+      <DateInterval8 key={key} />
+    ),
     file: (component: PageComponent, key: string) => (
       <File8
         component={component}
@@ -102,7 +105,9 @@ export default function PageModule({
         classes={classes}
       />
     ),
-    video: (component: PageComponent, key: string) => <Video8 key={key} />,
+    video: (component: PageComponent, key: string) => (
+      <Video8 component={component} key={key} />
+    ),
     input: (component: PageComponent, key: string) => (
       <Input8
         component={component}
@@ -123,7 +128,13 @@ export default function PageModule({
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>{page.name}</Text>
         {Object.keys(page.components).map((e) => {
-          return componentType[page.components[e].type](page.components[e], e);
+          if (componentType[page.components[e].type]){
+            return componentType[page.components[e].type](page.components[e], e);
+          }
+          else {
+            console.error("Tipo não existe")
+            return;
+          }
         })}
       </View>
     </KeyboardAvoidingView>

@@ -1,3 +1,4 @@
+// Cria um componente de imagem, e gera um token para guardar no armazenamento interno do celular, e ser recuperado para ser acessado novamente sem a necessidade de baixar novamente ou até mesmo offline
 import sumClass from "@/src/functions/sumClass";
 import { useEffect, useState } from "react";
 import { Image as ImageRN, Pressable, Text, View } from "react-native";

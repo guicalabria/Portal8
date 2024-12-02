@@ -1,3 +1,5 @@
+// Estrutura de navegação das Páginas, existem 3 retornos disponíveis, Drawer (gaveta), Tabs (abas) e Stack (pilha), a difereça é a forma de navegação do modulo, mas as páginas são renderizadas com o mesmo conteúdo.
+
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -34,6 +36,7 @@ export default function ModuleNavigation({
                   onValueChange={(e: any, component: string) =>
                     onValueChange(e, component, pageName, moduleName)
                   }
+                setToken={(t:string, k:string) => console.log(t,k)}
                 />
               )}
             </Drawer.Screen>
@@ -55,6 +58,7 @@ export default function ModuleNavigation({
                   onValueChange={(e: any, component: string) =>
                     onValueChange(e, component, pageName, moduleName)
                   }
+                setToken={(t:string, k:string) => console.log(t,k)}
                 />
               )}
             </Stack.Screen>
@@ -76,6 +80,7 @@ export default function ModuleNavigation({
                   onValueChange={(e: any, component: string) =>
                     onValueChange(e, component, pageName, moduleName)
                   }
+                setToken={(t:string, k:string) => console.log(t,k)}
                 />
               )}
             </Tabs.Screen>

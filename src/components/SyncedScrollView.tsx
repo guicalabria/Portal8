@@ -1,3 +1,4 @@
+// ScrollView personalizada para fazer rolagem de multiplas ScrollViews simultâneamente
 import { useContext, useEffect, useRef, useState } from "react"
 import { Animated, ScrollView, ScrollViewProps } from "react-native"
 import { SyncedScrollViewContext } from "./SyncedScrollViewContext" 

@@ -1,3 +1,4 @@
+// componente que cria uma seção de texto apenas para exibição
 import sumClass from "@/src/functions/sumClass";
 import { Text as TextRN } from "react-native";
 import { PageComponent } from "../interfaces";

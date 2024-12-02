@@ -1,3 +1,4 @@
+// Componente de tabela para exibição de dados em JSON
 import { useEffect, useState } from "react";
 import {
   Pressable,

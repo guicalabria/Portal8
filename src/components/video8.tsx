@@ -1,3 +1,4 @@
+// Gera um componente para vizualização de Vídeos.
 import { useEvent } from "expo";
 import { useVideoPlayer, VideoView } from "expo-video";
 import { StyleSheet, View, Button } from "react-native";

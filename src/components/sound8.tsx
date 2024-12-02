@@ -1,3 +1,4 @@
+// Cria um componente para ouvir um arquivo de audio
 import { useEffect, useState } from "react";
 import { View, StyleSheet, Pressable } from "react-native";
 import { Audio } from "expo-av";

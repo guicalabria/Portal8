@@ -1,3 +1,4 @@
+// Componente que gera um input para fazer multiplas seleções pré estabelecidas
 import { styles } from "@/src/constants/styles";
 import sumClass from "@/src/functions/sumClass";
 import { MultiSelect as DropdownMulti } from "react-native-element-dropdown";

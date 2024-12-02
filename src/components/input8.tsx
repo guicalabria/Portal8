@@ -1,3 +1,4 @@
+// Componente de input de texto
 import sumClass from "@/src/functions/sumClass";
 import { PageComponent } from "@/src/interfaces";
 import { TextInput } from "react-native";

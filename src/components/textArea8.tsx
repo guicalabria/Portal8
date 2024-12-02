@@ -1,3 +1,4 @@
+// cria um input para conter multilinhas, como por exemplo, um campo de observação
 import sumClass from "@/src/functions/sumClass";
 import { PageComponent } from "@/src/interfaces";
 import { TextInput } from "react-native";

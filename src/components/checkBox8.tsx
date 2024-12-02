@@ -1,3 +1,4 @@
+// cria um componente de checkbox, ele retorna os valores de true e false
 import sumClass from "@/src/functions/sumClass";
 import { PageComponent } from "@/src/interfaces";
 import CheckBox from "expo-checkbox";

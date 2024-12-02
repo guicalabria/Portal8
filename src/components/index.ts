@@ -1,3 +1,4 @@
+// Exportação de todos os componentes para facilitar a importação.
 export * from "./button8"
 export * from "./checkBox8"
 export * from "./date8"
